@@ -52,11 +52,13 @@
       position: relative;
       max-width: 90%;
       max-height: 90%;
+      overflow: auto;
     }
 
-    .popup-content img {
-      max-width: 100%;
-      max-height: 80vh;
+    .popup-content div#mensagem-text {
+      font-size: 18px;
+      color: #333;
+      white-space: pre-wrap;
     }
 
     .close {
@@ -79,26 +81,26 @@
   </div>
 
   <div class="controls">
-    <button id="openPopup">📷 Ver Mensagem</button>
+    <button id="openPopup">📄 Ver Mensagem</button>
   </div>
 
   <div id="popup" class="popup">
     <div class="popup-content">
       <span class="close" id="closePopup">&times;</span>
-      <img id="mensagem-img" src="" alt="Mensagem" />
+      <div id="mensagem-text"></div>
     </div>
   </div>
 
   <script>
     const popup = document.getElementById("popup");
-    const mensagemImg = document.getElementById("mensagem-img");
-    const webAppUrl = "https://script.google.com/macros/s/AKfycbxtQczHuybqu3ar827EWE2eHkeYguhhfhbljb9DbPO4OsUeXyjKguODbZHLyuMyxgXj/exec"; // <<--- Substitua aqui!
+    const mensagemText = document.getElementById("mensagem-text");
+    const webAppUrl = "https://script.google.com/macros/s/SEU_SCRIPT_ID/exec"; // Substitua pelo URL real
 
     document.getElementById("openPopup").addEventListener("click", () => {
       fetch(webAppUrl)
         .then(res => res.text())
-        .then(url => {
-          mensagemImg.src = url;
+        .then(text => {
+          mensagemText.textContent = text;
           popup.style.display = "flex";
         });
     });
