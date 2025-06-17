@@ -103,30 +103,6 @@
     <button id="openPopup">📷 Ver Mensagem</button>
   </div>
 
-  <!-- Pop-up da imagem -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span id="closePopup" class="close">&times;</span>
-      <img src="https://script.google.com/macros/s/AKfycbyp6uZDkiB3U_0gv-EM5wDg4GbzAr6mHyHbpCXWqNE-2U1Z_3nKlPcR5RJ-dg_Vc4QX/exec" alt="Mensagem personalizada" />
-    </div>
-  </div>
 
-  <script>
-    // Lógica do pop-up
-    document.getElementById("openPopup").addEventListener("click", function () {
-      document.getElementById("popup").style.display = "flex";
-    });
-
-    document.getElementById("closePopup").addEventListener("click", function () {
-      document.getElementById("popup").style.display = "none";
-    });
-
-    window.addEventListener("click", function (event) {
-      const popup = document.getElementById("popup");
-      if (event.target === popup) {
-        popup.style.display = "none";
-      }
-    });
-  </script>
 </body>
 </html>
